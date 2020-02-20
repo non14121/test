@@ -14,6 +14,9 @@ var firebaseConfig = {
     appId: "1:52105346425:web:d6a591fa94a3918aee83a8"
 };
 firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+
+
 
 function initializeApp(data) {
     document.getElementById('languagefield').textContent = data.language;
@@ -80,9 +83,23 @@ function initializeApp(data) {
         });
     });
 
-    document.getElementById('register').addEventListener('click', function () {
-        document.getElementById('useridprofilefield').textContent = profile.userId;
-        document.getElementById('displaynamefield').textContent = profile.displayName;
+    const userRef = db.doc('user');
+    const fname = document.querySelector('fname');
+    const lname = document.querySelector('lname');
+
+    document.querySelector('register').addEventListener('click', function () {
+        document.getElementById('useridfield').textContent = data.context.userId;
+        const saveF = fname.value;
+        const saveL = lname.value;
+        console.log("ลงทะเบียน คุณ " + fname + lname );
+        userRef.set({
+            firstname: saveF,
+            lastname: saveL
+        }).then(function () {
+            console.log("ลงทะเบียนเสร็จสิ้น");
+        }).catch(function (error) {
+            console.log("ลงทะเบียนไม่สำเร็จ");
+        });
     });
 }
 
