@@ -5,6 +5,26 @@
 </head>
 
 <body>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+
+    <script>
+        // TODO: Replace the following with your app's Firebase project configuration
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBuzCbqzJQ9cjrfgM0N_TdsPEMxb16ZJpY",
+            authDomain: "non-afxmct.firebaseapp.com",
+            databaseURL: "https://non-afxmct.firebaseio.com",
+            projectId: "non-afxmct",
+            storageBucket: "non-afxmct.appspot.com",
+            messagingSenderId: "52105346425",
+            appId: "1:52105346425:web:d6a591fa94a3918aee83a8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
     <div class="buttongroup">
         <div class="buttonrow">
             <button id="openwindowbutton">Open Window</button>
@@ -78,7 +98,16 @@
             </tr>
         </table>
     </div>
-    
+
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script src="liff-starter.js"></script>
+
+
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
 </body>
