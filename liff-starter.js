@@ -4,6 +4,17 @@ window.onload = function (e) {
     });
 };
 
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp(
+  {
+    credential: admin.credential.applicationDefault(),
+    databaseURL: 'https://non-afxmct.firebaseio.com'
+  }
+);
+admin.initializeApp(functions.config().firebase);
+const db = admin.firestore();
+
 function initializeApp(data) {
     document.getElementById('languagefield').textContent = data.language;
     document.getElementById('viewtypefield').textContent = data.context.viewType;
@@ -67,6 +78,11 @@ function initializeApp(data) {
         }).catch(function (error) {
             window.alert("Error getting profile: " + error);
         });
+    });
+
+    document.getElementById('register').addEventListener('click', function () {
+        document.getElementById('useridprofilefield').textContent = profile.userId;
+        document.getElementById('displaynamefield').textContent = profile.displayName;
     });
 }
 
