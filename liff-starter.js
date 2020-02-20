@@ -96,9 +96,9 @@ function initializeApp(data) {
             firstname: saveF,
             lastname: saveL
         }).then(function () {
-            console.log("ลงทะเบียนเสร็จสิ้น");
+            window.alert("ลงทะเบียนเสร็จสิ้น");
         }).catch(function (error) {
-            console.log("ลงทะเบียนไม่สำเร็จ", error);
+            window.alert("ลงทะเบียนไม่สำเร็จ" + error);
         });
     });
 }
