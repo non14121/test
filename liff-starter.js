@@ -98,7 +98,7 @@ function initializeApp(data) {
         }).then(function () {
             console.log("ลงทะเบียนเสร็จสิ้น");
         }).catch(function (error) {
-            console.log("ลงทะเบียนไม่สำเร็จ");
+            console.log("ลงทะเบียนไม่สำเร็จ", error);
         });
     });
 }
