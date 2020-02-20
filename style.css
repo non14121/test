@@ -5,8 +5,10 @@ html {
 
 table {
     width: 100%;
-    table-layout:fixed;
+    table-layout: fixed;
     word-break: break-all;
+    background-color: #4CAF50;
+    color: white;
 }
 
 .div {
@@ -41,6 +43,7 @@ img {
 }
 
 button {
+    margin: 4px;
     border-radius: 12px;
     background-color: #4CAF50;
 }
