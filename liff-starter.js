@@ -86,7 +86,7 @@ function initializeApp(data) {
         });
     });
 
-    const userRef = db.doc('user');
+    const userRef = db.collection('user');
     const fname = document.querySelector('fname');
     const lname = document.querySelector('lname');
 
