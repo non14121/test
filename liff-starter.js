@@ -7,7 +7,7 @@ window.onload = function (e) {
 function initializeAppSA() {
     // [START initialize_app_service_account]
 
-    let serviceAccount = require('https://github.com/non14121/test/blob/master/non-afxmct-197646afaff4.json');
+    let serviceAccount = require('@github.com/non14121/test/blob/master/non-afxmct-197646afaff4.json');
 
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount)
