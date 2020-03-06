@@ -3,18 +3,21 @@ window.onload = function (e) {
         initializeApp(data);
     });
 };
-// Initialize Firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyBuzCbqzJQ9cjrfgM0N_TdsPEMxb16ZJpY",
-    authDomain: "non-afxmct.firebaseapp.com",
-    databaseURL: "https://non-afxmct.firebaseio.com",
-    projectId: "non-afxmct",
-    storageBucket: "non-afxmct.appspot.com",
-    messagingSenderId: "52105346425",
-    appId: "1:52105346425:web:d6a591fa94a3918aee83a8"
-};
-firebase.initializeApp(firebaseConfig);
-var db = firebase.firestore();
+
+function initializeAppSA() {
+    // [START initialize_app_service_account]
+
+    let serviceAccount = require('https://github.com/non14121/test/blob/master/non-afxmct-197646afaff4.json');
+
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount)
+    });
+
+    let db = admin.firestore();
+
+    // [END initialize_app_service_account]
+    return db;
+}
 
 
 
