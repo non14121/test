@@ -4,22 +4,15 @@ window.onload = function (e) {
     });
 };
 
-function initializeAppSA() {
-    // [START initialize_app_service_account]
+const admin = require("firebase-admin");
 
-    let serviceAccount = require('@github.com/non14121/test/blob/master/non-afxmct-197646afaff4.json');
+let serviceAccount = require("C:\Users\DELL\bot-bitch\firebase.login.json");
 
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
-    });
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)   
+});
 
-    let db = admin.firestore();
-
-    // [END initialize_app_service_account]
-    return db;
-}
-
-
+const db = admin.firestore();
 
 function initializeApp(data) {
     document.getElementById('languagefield').textContent = data.language;
@@ -86,21 +79,20 @@ function initializeApp(data) {
         });
     });
 
-    const userRef = db.collection('user');
-    const fname = document.querySelector('fname');
-    const lname = document.querySelector('lname');
 
-    document.querySelector('register').addEventListener('click', function () {
-        document.getElementById('useridfield').textContent = data.context.userId;
-        const saveF = fname.value;
-        const saveL = lname.value;
-        console.log("ลงทะเบียน คุณ " + fname + lname );
-        userRef.set({
-            firstname: saveF,
-            lastname: saveL
-        }).then(function () {
+    document.querySelector('registerButton').addEventListener('click', function () {
+        liff.getProfile().then(function (register) {
+            var userId = register.userId;
+            var saveF = document.querySelector('fname');
+            var saveL = document.querySelector('lname');
+            
+            db.collection('user').doc(userId).set({ firstname: saveF, lastname: saveL });
+        toggleRegister();
+        })
+            .then(function () {
             window.alert("ลงทะเบียนเสร็จสิ้น");
-        }).catch(function (error) {
+        })
+            .catch(function (error) {
             window.alert("ลงทะเบียนไม่สำเร็จ" + error);
         });
     });
@@ -112,6 +104,10 @@ function toggleAccessToken() {
 
 function toggleProfileData() {
     toggleElement('profileinfo');
+}
+
+function toggleRegister() {
+    toggleElement('register');
 }
 
 function toggleElement(elementId) {
