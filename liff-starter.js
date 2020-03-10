@@ -1,31 +1,41 @@
 window.onload = function (e) {
-    liff.init(function (data) {
-        initializeApp(data);
-    });
+    liff
+        .init({
+            liffId: "1653837424 - k4LmLDDJ"
+        })
+        .then(() => {
+            // start to use LIFF's api
+            initializeApp();
+        })
+        .catch((err) => {
+            console.log(err.code, err.message);
+        });
 };
 
 const admin = require("firebase-admin");
 
 //let serviceAccount = require("C:\Users\DELL\bot-bitch\firebase.login.json");
 
-/*admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)   
-});*/
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://non-afxmct.firebaseio.com"
+});
 
 const db = admin.firestore();
 
-function initializeApp(data) {
-    document.getElementById('languagefield').textContent = data.language;
-    document.getElementById('viewtypefield').textContent = data.context.viewType;
-    document.getElementById('useridfield').textContent = data.context.userId;
-    document.getElementById('utouidfield').textContent = data.context.utouId;
-    document.getElementById('roomidfield').textContent = data.context.roomId;
-    document.getElementById('groupidfield').textContent = data.context.groupId;
+function initializeApp() {
+    //document.getElementById('languagefield').textContent = data.language;
+    //document.getElementById('viewtypefield').textContent = data.context.viewType;
+    //document.getElementById('useridfield').textContent = data.context.userId;
+    //document.getElementById('utouidfield').textContent = data.context.utouId;
+    //document.getElementById('roomidfield').textContent = data.context.roomId;
+    //document.getElementById('groupidfield').textContent = data.context.groupId;
 
     // openWindow call
     document.getElementById('openwindowbutton').addEventListener('click', function () {
         liff.openWindow({
-            url: 'https://line.me'
+            url: 'https://line.me',
+            external: true
         });
     });
 
