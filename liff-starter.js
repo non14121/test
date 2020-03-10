@@ -1,4 +1,4 @@
-window.onload = function (e) {
+
     liff
         .init({
             liffId: "1653837424 - k4LmLDDJ"
@@ -10,7 +10,7 @@ window.onload = function (e) {
         .catch((err) => {
             console.log(err.code, err.message);
         });
-};
+
 
 const admin = require("firebase-admin");
 
