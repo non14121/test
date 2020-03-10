@@ -1,16 +1,4 @@
-
-    liff
-        .init({
-            liffId: "1653837424 - k4LmLDDJ"
-        })
-        .then(() => {
-            // start to use LIFF's api
-            initializeApp();
-        })
-        .catch((err) => {
-            console.log(err.code, err.message);
-        });
-
+liff.init({ liffId: "1653837424-k4LmLDDJ" }, () => { }, err => console.error(err.code, error.message));
 
 const admin = require("firebase-admin");
 
@@ -90,7 +78,7 @@ function initializeApp() {
     });
 
 
-    document.querySelector('registerButton').addEventListener('click', function () {
+    document.getElementById('registerButton').addEventListener('click', function () {
         liff.getProfile().then(function (register) {
             var userId = register.userId;
             var saveF = document.querySelector('fname');
