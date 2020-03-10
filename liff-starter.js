@@ -6,11 +6,11 @@ window.onload = function (e) {
 
 const admin = require("firebase-admin");
 
-let serviceAccount = require("C:\Users\DELL\bot-bitch\firebase.login.json");
+//let serviceAccount = require("C:\Users\DELL\bot-bitch\firebase.login.json");
 
-admin.initializeApp({
+/*admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)   
-});
+});*/
 
 const db = admin.firestore();
 
